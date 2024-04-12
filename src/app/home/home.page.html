@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Calculadora
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,37 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Calculadora</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+    <ion-label position="floating">Número 1</ion-label>
+    <ion-input type="number" [(ngModel)]="numero1" placeholder=" numero1"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Número 2</ion-label>
+    <ion-input type="number" [(ngModel)]="numero2" placeholder=" numero2"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="sumar()">Sumar</ion-button>
+  <ion-button expand="full" (click)="restar()">Restar</ion-button>
+  <ion-button expand="full" (click)="multiplicar()">Multiplicar</ion-button>
+  <ion-button expand="full" (click)="dividir()">Dividir</ion-button>
+  <ion-button expand="full" (click)="calcularModulo()">Módulo</ion-button>
+  <ion-button expand="full" (click)="verificarParidad()">Verificar Paridad</ion-button>
+  <ion-button expand="full" (click)="calcularFibonacci()">Fibonacci</ion-button>
+  <ion-button expand="full" (click)="calcularFactorial()">Factorial</ion-button>
+
+
+  <ion-item *ngIf="resultado !== undefined">
+    <ion-label>Resultado:</ion-label>
+    <ion-input type="text" [value]="resultado" readonly></ion-input>
+  </ion-item>
+  <ion-item *ngIf="mensaje !== ''">
+    <ion-input type="text" [value]="mensaje" readonly></ion-input>
+  </ion-item>
+
+
 </ion-content>
